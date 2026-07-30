@@ -46,4 +46,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function ekskul() {
+        return $this->belongsTo(Ekskul::class); 
+    }
+
+    public function beritas() {
+        return $this->hasMany(Berita::class);
+    }
 }

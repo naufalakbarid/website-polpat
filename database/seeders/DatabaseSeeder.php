@@ -15,11 +15,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // 1. Data Ekskul
+        $ekskul = \App\Models\Ekskul::create([
+            'nama_ekskul' => 'Pramuka',
+            'deskripsi' => 'Ekstrakurikuler wajib pembentuk karakter.'
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // 2. Akun Super Admin
+        $admin = \App\Models\User::create([
+            'name' => 'Super Admin Polpat',
+            'email' => 'admin@polpat.sch.id', 
+            'password' => bcrypt('password123'),
+            'role' => 'super_admin',
+            'ekskul_id' => null
+        ]);
+
+        // 3. Data Info Juara
+        \App\Models\Berita::create([
+            'judul' => 'Juara 1 Olimpiade Matematika Nasional',
+            'konten' => 'Siswa SD Polisi 4 berhasil meraih medali emas di Jakarta.',
+            'kategori' => 'Prestasi',
+            'user_id' => $admin->id
+        ]);
+    
+        \App\Models\Berita::create([
+            'judul' => 'Juara 2 Lomba Tari Tradisional',
+            'konten' => 'Tim kesenian memukau juri di tingkat provinsi.',
+            'kategori' => 'Prestasi',
+            'user_id' => $admin->id
         ]);
     }
 }

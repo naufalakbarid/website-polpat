@@ -20,18 +20,23 @@
                 <h3 class="fw-bold border-polpat">Info Juara & Prestasi</h3>
             </div>
             
-            <!-- Contoh 3 Kotak Prestasi -->
-            @for ($i = 1; $i <= 3; $i++)
+           <!-- BLOK 3: Highlight Info Juara -->
+        <div class="row mb-5">
+            <div class="col-12 text-center mb-4">
+                <h3 class="fw-bold border-polpat">Info Juara & Prestasi</h3>
+            </div>
+            
+            @foreach ($prestasi as $item)
             <div class="col-md-4 mb-3">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-img-top bg-secondary text-white text-center py-4">Foto Ilustrasi Lomba</div>
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">Juara {{ $i }} Olimpiade Sains</h5>
-                        <p class="card-text text-muted small">Diperoleh oleh Siswa/i terbaik SD Polisi 4 pada tingkat Provinsi.</p>
+                        <h5 class="card-title fw-bold">{{ $item->judul }}</h5>
+                        <p class="card-text text-muted small">{{ $item->konten }}</p>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
 
         <!-- BLOK 4: Sambutan Kepala Sekolah (30/70) -->
