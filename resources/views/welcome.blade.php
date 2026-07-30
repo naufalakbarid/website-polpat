@@ -13,13 +13,7 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- BLOK 3: Highlight Info Juara (Card) -->
-        <div class="row mb-5">
-            <div class="col-12 text-center mb-4">
-                <h3 class="fw-bold border-polpat">Info Juara & Prestasi</h3>
-            </div>
-            
+    <div class="container">     
            <!-- BLOK 3: Highlight Info Juara -->
         <div class="row mb-5">
             <div class="col-12 text-center mb-4">
