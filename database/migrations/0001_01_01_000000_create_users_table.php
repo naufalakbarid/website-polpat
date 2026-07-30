@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['super_admin', 'admin_ekskul'])->default('admin_ekskul');
+            $table->foreignId('ekskul_id')->nullable()->constrained('ekskuls')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
         });
