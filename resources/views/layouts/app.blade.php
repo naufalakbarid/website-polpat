@@ -6,36 +6,62 @@
     <title>SD Polisi 4 Bogor</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body class="font-sans antialiased bg-white text-gray-900">
 
-    <!-- BLOK 1: Header & Navigasi -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-polpat" href="/">SD POLISI 4 BOGOR</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ekstrakurikuler</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Berita</a></li>
-                </ul>
+    <!-- NAVBAR (Melayang, Transparan & Efek Kaca) -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-200/80 backdrop-blur-md py-4 px-8 border-b border-gray-300/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo Kiri -->
+            <div class="text-2xl font-bold leading-tight">
+                Lo<br>Go
+            </div>
+            <!-- Menu Kanan -->
+            <div class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="/" class="hover:text-polpat transition">Beranda</a>
+                <a href="/profil" class="hover:text-polpat transition">Profil</a>
+                <a href="/sdm" class="hover:text-polpat transition">SDM</a>
+                <a href="/fasilitas" class="hover:text-polpat transition">Fasilitas</a>
+                <a href="/akademik" class="hover:text-polpat transition">Akademik</a>
+                <a href="/ekstrakurikuler" class="hover:text-polpat transition">Ekstrakulikuler</a>
+                <a href="/berita" class="hover:text-polpat transition">Berita</a>
+                <a href="/kontak" class="hover:text-polpat transition">Kontak</a>
             </div>
         </div>
     </nav>
 
-    <!-- KONTEN  -->
-    <main>
+    <!-- KONTEN DINAMIS HALAMAN (Tanpa Jarak) -->
+    <main class="w-full">
         @yield('content')
     </main>
 
-    <!-- BLOK 6: Footer -->
-    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2026 SD Polisi 4 Kota Bogor. All Rights Reserved.</p>
+    <!-- FOOTER (Menempel Rapat dengan Section Terakhir) -->
+    <footer class="w-full bg-gray-300 pt-10 pb-6 border-t border-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left mb-8">
+                <!-- Kolom 1: Logo -->
+                <div class="flex justify-center md:justify-start items-center">
+                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center font-bold text-gray-500 shadow-sm">
+                        logo
+                    </div>
+                </div>
+                <!-- Kolom 2: Hubungi Kami -->
+                <div class="bg-white p-4 flex items-center justify-center text-sm shadow-sm">
+                    hubungi kami
+                </div>
+                <!-- Kolom 3: Sosmed -->
+                <div class="bg-white p-4 flex items-center justify-center text-sm shadow-sm">
+                    sosmed
+                </div>
+                <!-- Kolom 4: Maps -->
+                <div class="bg-white p-4 flex items-center justify-center text-sm shadow-sm">
+                    maps
+                </div>
+            </div>
+            <div class="text-center text-xs text-gray-600 mt-4 border-t border-gray-400 pt-4">
+                Footer - &copy; 2026 SD Polisi 4 Bogor
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
