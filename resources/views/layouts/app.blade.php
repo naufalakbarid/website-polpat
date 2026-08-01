@@ -4,15 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SD Polisi 4 Bogor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #F8F9FA; color: #333333; }
-        .text-polpat { color: #F26522; }
-        .bg-polpat { background-color: #F26522; color: white; }
-        .btn-polpat { background-color: #F26522; color: white; border: none; }
-        .btn-polpat:hover { background-color: #d9561a; color: white; }
-        .border-polpat { border-bottom: 3px solid #F26522; display: inline-block; padding-bottom: 5px; }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -45,7 +37,5 @@
             <p>&copy; 2026 SD Polisi 4 Kota Bogor. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
