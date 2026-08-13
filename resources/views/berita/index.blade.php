@@ -34,13 +34,14 @@
                 <td class="p-4 text-sm text-gray-600">{{ $item->user->name }}</td>
                 <td class="p-4 text-sm text-gray-600">{{ $item->created_at->format('d M Y') }}</td>
                 <td class="p-4 flex justify-center gap-2">
-                    <a href="{{ route('berita.edit', $item->id) }}" class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-yellow-200 transition">Edit</a>
-                    
-                    <form action="{{ route('berita.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus berita ini?');">
+                    <a href="{{ route('berita.edit', $item->id) }}" class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-yellow-200 transition">Edit</a>                    
+                    @if(Auth::user()->role === 'super_admin')
+                    <form action="{{ route('berita.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus berita ini secara permanen?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-red-200 transition">Hapus</button>
                     </form>
+                    @endif
                 </td>
             </tr>
             @empty
