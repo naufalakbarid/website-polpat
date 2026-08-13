@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->text('konten');
-            $table->string('foto_sampul')->nullable();
+            $table->string('foto')->nullable();
             $table->enum('kategori', ['Berita', 'Prestasi']); 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
