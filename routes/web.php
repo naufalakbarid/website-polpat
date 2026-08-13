@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return 'Selamat Datang di Dashboard ' . Auth::user()->name; 
+    return view('dashboard');
 })->middleware('auth');
 
 Route::get('/portal-pembina', [AuthController::class, 'showLogin'])->name('login');

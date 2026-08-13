@@ -14,7 +14,6 @@
             <p class="text-sm text-gray-500">SD Polisi 4 Bogor</p>
         </div>
 
-        <!-- Menampilkan Pesan Error -->
         @if ($errors->any())
             <div class="bg-red-100 text-red-600 p-3 rounded-lg text-sm mb-4">
                 {{ $errors->first() }}
@@ -22,7 +21,7 @@
         @endif
 
         <form action="/portal-pembina" method="POST" class="space-y-5">
-            @csrf <!-- Token Keamanan Wajib -->
+            @csrf
             
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
