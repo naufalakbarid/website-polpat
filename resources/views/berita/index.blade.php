@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="flex justify-between items-center mb-6">
+    @if(session('success'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
+        <span class="block sm:inline font-medium">{{ session('success') }}</span>
+    </div>
+    @endif
     <h2 class="text-2xl font-bold text-gray-800">Manajemen Berita & Prestasi</h2>
     <a href="{{ route('berita.create') }}" class="bg-polpat hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-medium shadow-sm transition">
         + Tambah Berita Baru

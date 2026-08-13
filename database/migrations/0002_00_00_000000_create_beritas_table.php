@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('judul');
             $table->text('konten');
             $table->string('foto_sampul')->nullable();
-            $table->enum('kategori', ['Berita', 'Prestasi']); // Membedakan antara berita biasa dan Info Juara
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Siapa admin yang menulis ini
+            $table->enum('kategori', ['Berita', 'Prestasi']); 
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
