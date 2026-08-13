@@ -9,7 +9,6 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        // Mengambil semua data berita, diurutkan dari yang terbaru
         $berita = Berita::with('user')->latest()->get();
         
         return view('berita.index', compact('berita'));
