@@ -19,7 +19,7 @@
             </a>
             
             @if(Auth::user()->role === 'super_admin')
-            <a href="#" class="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg transition">
+            <a href="{{ route('users.index') }}" class="flex items-center px-4 py-3 hover:bg-gray-700 rounded-lg transition {{ request()->is('dashboard/users*') ? 'bg-gray-900 text-polpat font-medium' : '' }}">
                 👥 Manajemen Akun
             </a>
             @endif

@@ -23,7 +23,35 @@ class UserController extends Controller
         return view('users.create', compact('ekskul'));
     }
 
-    public function store(Request $request) { /* Akan diisi di Tahap 2 */ }
+public function store(Request $request)
+    {
+        // 1. Validasi Input Dasar
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users', // Mencegah email ganda
+            'password' => 'required|string|min:8', // Minimal 8 karakter
+            'role' => 'required|in:super_admin,admin_ekskul',
+            'ekskul_id' => 'nullable|exists:ekskuls,id'
+        ]);
+
+        // 2. Validasi Logika Bisnis
+        if ($validated['role'] === 'super_admin') {
+            // Super admin tidak boleh terikat pada satu ekskul
+            $validated['ekskul_id'] = null;
+        } else if ($validated['role'] === 'admin_ekskul' && empty($validated['ekskul_id'])) {
+            // Tolak jika Admin Ekskul tapi ekskul_id nya kosong
+            return back()->withErrors(['ekskul_id' => 'Peringatan: Admin Ekskul wajib ditugaskan ke salah satu ekstrakurikuler!'])->withInput();
+        }
+
+        // 3. Enkripsi Password (Krusial!)
+        $validated['password'] = Hash::make($validated['password']);
+
+        // 4. Simpan ke Database
+        User::create($validated);
+
+        return redirect()->route('users.index')->with('success', 'Akun admin baru berhasil didaftarkan dan dienkripsi!');
+    }
+    
     public function show(string $id) { /* Tidak dipakai */ }
     public function edit(string $id) { /* Akan diisi di Tahap 2 */ }
     public function update(Request $request, string $id) { /* Akan diisi di Tahap 2 */ }
