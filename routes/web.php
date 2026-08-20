@@ -35,3 +35,4 @@ Route::view('/akademik', 'akademik');
 Route::view('/ekstrakurikuler', 'ekstrakurikuler');
 Route::view('/berita', 'berita');
 Route::view('/kontak', 'kontak');
+Route::view('/profil-sekolah', 'profil.index')->name('profil.sekolah');

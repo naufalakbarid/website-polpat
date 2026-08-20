@@ -18,7 +18,7 @@
             <!-- Menu Kanan -->
             <div class="hidden md:flex space-x-6 text-sm font-medium">
                 <a href="/" class="hover:text-polpat transition">Beranda</a>
-                <a href="{ { route('profil.sekolah')}}" class="hover:text-polpat transition">Profil</a>
+                <a href="{{ route('profil.sekolah') }}" class="hover:text-polpat transition">Profil</a>
                 <a href="/sdm" class="hover:text-polpat transition">SDM</a>
                 <a href="/fasilitas" class="hover:text-polpat transition">Fasilitas</a>
                 <a href="/akademik" class="hover:text-polpat transition">Akademik</a>
