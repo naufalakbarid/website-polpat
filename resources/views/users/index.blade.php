@@ -42,8 +42,16 @@
                     {{ $user->ekskul ? $user->ekskul->nama_ekskul : 'Semua Sistem (Global)' }}
                 </td>
                 <td class="p-4 flex justify-center gap-2">
-                    <!-- Tombol Edit/Hapus akan kita aktifkan di iterasi berikutnya -->
-                    <button class="bg-gray-100 text-gray-400 px-3 py-1 rounded-lg text-sm font-medium cursor-not-allowed">Edit</button>
+                    <a href="{{ route('users.edit', $user->id) }}" class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-yellow-200 transition">Edit</a>
+                    @if(Auth::id() !== $user->id)
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Yakin ingin mencabut akses admin ini secara permanen?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-sm font-medium hover:bg-red-200 transition">Hapus</button>
+                    </form>
+                    @else
+                    <button class="bg-gray-200 text-gray-500 px-3 py-1 rounded-lg text-sm font-medium cursor-not-allowed" title="Anda tidak bisa menghapus akun Anda sendiri">Aktif</button>
+                    @endif
                 </td>
             </tr>
             @endforeach
