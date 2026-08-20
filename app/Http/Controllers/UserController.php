@@ -25,28 +25,22 @@ class UserController extends Controller
 
 public function store(Request $request)
     {
-        // 1. Validasi Input Dasar
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users', // Mencegah email ganda
-            'password' => 'required|string|min:8', // Minimal 8 karakter
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
             'role' => 'required|in:super_admin,admin_ekskul',
             'ekskul_id' => 'nullable|exists:ekskuls,id'
         ]);
 
-        // 2. Validasi Logika Bisnis
         if ($validated['role'] === 'super_admin') {
-            // Super admin tidak boleh terikat pada satu ekskul
             $validated['ekskul_id'] = null;
         } else if ($validated['role'] === 'admin_ekskul' && empty($validated['ekskul_id'])) {
-            // Tolak jika Admin Ekskul tapi ekskul_id nya kosong
             return back()->withErrors(['ekskul_id' => 'Peringatan: Admin Ekskul wajib ditugaskan ke salah satu ekstrakurikuler!'])->withInput();
         }
 
-        // 3. Enkripsi Password (Krusial!)
         $validated['password'] = Hash::make($validated['password']);
 
-        // 4. Simpan ke Database
         User::create($validated);
 
         return redirect()->route('users.index')->with('success', 'Akun admin baru berhasil didaftarkan dan dienkripsi!');
@@ -66,7 +60,7 @@ public function store(Request $request)
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id, // Abaikan email milik sendiri
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8', // Boleh kosong
             'role' => 'required|in:super_admin,admin_ekskul',
             'ekskul_id' => 'nullable|exists:ekskuls,id'
@@ -78,7 +72,6 @@ public function store(Request $request)
             return back()->withErrors(['ekskul_id' => 'Peringatan: Admin Ekskul wajib ditugaskan ke salah satu ekstrakurikuler!'])->withInput();
         }
 
-        // Cek apakah kolom password diisi. Jika ya, enkripsi. Jika tidak, hapus dari array agar tidak ikut terupdate.
         if (!empty($validated['password'])) {
             $validated['password'] = Hash::make($validated['password']);
         } else {
@@ -94,7 +87,6 @@ public function store(Request $request)
     {
         $user = User::findOrFail($id);
         
-        // Proteksi Tambahan: Mencegah bunuh diri sistem
         if (auth()->id() === $user->id) {
             abort(403, 'TINDAKAN ILEGAL: Anda tidak dapat menghapus akun Anda sendiri.');
         }

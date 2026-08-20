@@ -42,7 +42,6 @@
             </select>
         </div>
 
-        <!-- Disembunyikan secara default, akan muncul lewat Javascript -->
         <div id="ekskul_container" style="display: none;">
             <label class="block text-sm font-medium text-gray-700 mb-1">Tugaskan ke Ekstrakurikuler</label>
             <select name="ekskul_id" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-polpat focus:outline-none">
@@ -63,7 +62,6 @@
 </div>
 
 <script>
-    // Logika Javascript untuk memunculkan dropdown ekskul
     function toggleEkskul() {
         const role = document.getElementById('role').value;
         const ekskulContainer = document.getElementById('ekskul_container');
