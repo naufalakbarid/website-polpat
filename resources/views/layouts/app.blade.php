@@ -19,11 +19,11 @@
             <div class="hidden md:flex space-x-6 text-sm font-medium">
                 <a href="/" class="hover:text-polpat transition">Beranda</a>
                 <a href="{{ route('profil.sekolah') }}" class="hover:text-polpat transition">Profil</a>
-                <a href="/sdm" class="hover:text-polpat transition">SDM</a>
-                <a href="/fasilitas" class="hover:text-polpat transition">Fasilitas</a>
-                <a href="/akademik" class="hover:text-polpat transition">Akademik</a>
-                <a href="/ekstrakurikuler" class="hover:text-polpat transition">Ekstrakulikuler</a>
-                <a href="/berita" class="hover:text-polpat transition">Berita</a>
+                <a href="{{ route('sdm.sekolah') }}" class="hover:text-polpat transition">SDM</a>
+                <a href="{{ route('fasilitas.sekolah') }}" class="hover:text-polpat transition">Fasilitas</a>
+                <a href="{{ route('akademik.sekolah') }}" class="hover:text-polpat transition">Akademik</a>
+                <a href="{{ route('ekstrakurikuler.sekolah') }}" class="hover:text-polpat transition">Ekstrakulikuler</a>
+                <a href="{{ route('berita.sekolah') }}" class="hover:text-polpat transition">Berita</a>
                 <a href="/kontak" class="hover:text-polpat transition">Kontak</a>
             </div>
         </div>

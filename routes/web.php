@@ -36,3 +36,8 @@ Route::view('/ekstrakurikuler', 'ekstrakurikuler');
 Route::view('/berita', 'berita');
 Route::view('/kontak', 'kontak');
 Route::view('/profil-sekolah', 'profil.index')->name('profil.sekolah');
+Route::view('/sdm-sekolah', 'sdm.index')->name('sdm.sekolah');
+Route::view('/fasilitas-sekolah', 'fasilitas.index')->name('fasilitas.sekolah');
+Route::view('/akademik-sekolah', 'akademik.index')->name('akademik.sekolah');
+Route::view('/ekstrakurikuler-sekolah', 'ekstrakurikuler.index')->name('ekstrakurikuler.sekolah');
+Route::view('/berita-sekolah', 'berita.index')->name('berita.sekolah');

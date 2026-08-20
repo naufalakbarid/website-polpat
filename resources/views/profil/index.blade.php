@@ -133,7 +133,7 @@
 
                             <div class="aspect-[4/3] bg-gray-200">
                                 <img
-                                    src="{{ asset('images/pimpinan/kepala-sekolah.jpg') }}"
+                                    src="{{ asset('storage/foto_profil/kepala-sekolah.jpg') }}"
                                     alt="Kepala Sekolah"
                                     class="w-full h-full object-cover">
                             </div>
@@ -145,7 +145,7 @@
                                 </h3>
 
                                 <p class="text-blue-600 text-sm mt-1">
-                                    Kepala Sekolah
+                                    Kepala Sekolah Tahun 20**-20**
                                 </p>
 
                             </div>
@@ -166,11 +166,11 @@
                             <div class="p-5 text-center">
 
                                 <h3 class="font-bold text-gray-900">
-                                    Nama Wakil Kepala
+                                    Nama Kepala Sekolah
                                 </h3>
 
                                 <p class="text-blue-600 text-sm mt-1">
-                                    Wakil Kepala Sekolah
+                                    Kepala Sekolah Tahun 20**-20**
                                 </p>
 
                             </div>
@@ -191,11 +191,11 @@
                             <div class="p-5 text-center">
 
                                 <h3 class="font-bold text-gray-900">
-                                    Nama Ketua Komite
+                                    Nama Kepala Sekolah
                                 </h3>
 
                                 <p class="text-blue-600 text-sm mt-1">
-                                    Ketua Komite Sekolah
+                                    Kepala Sekolah Tahun 20**-20**
                                 </p>
 
                             </div>
