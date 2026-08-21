@@ -18,7 +18,28 @@
             <!-- Menu Kanan -->
             <div class="hidden md:flex space-x-6 text-sm font-medium">
                 <a href="/" class="hover:text-polpat transition">Beranda</a>
-                <a href="{{ route('profil.sekolah') }}" class="hover:text-polpat transition">Profil</a>
+                <div class="relative group">
+                    <button class="hover:text-polpat transition flex items-center gap-1">
+                        Profil
+                        <span class="text-xs">▾</span>
+                    </button>
+
+                    <div class="absolute left-0 top-full mt-2 w-52 bg-white rounded-lg shadow-lg
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                                transition-all duration-200">
+
+                        <a href="/profil-sekolah#visi-misi"
+                        class="block px-4 py-3 hover:bg-gray-100 transition">
+                            Visi & Misi
+                        </a>
+
+                        <a href="/profil-sekolah#sejarah-kepemimpinan"
+                        class="block px-4 py-3 hover:bg-gray-100 transition">
+                            Sejarah Kepemimpinan
+                        </a>
+
+                    </div>
+                </div>
                 <a href="{{ route('sdm.sekolah') }}" class="hover:text-polpat transition">SDM</a>
                 <a href="{{ route('fasilitas.sekolah') }}" class="hover:text-polpat transition">Fasilitas</a>
                 <a href="{{ route('akademik.sekolah') }}" class="hover:text-polpat transition">Akademik</a>
